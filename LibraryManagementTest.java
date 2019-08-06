@@ -20,7 +20,7 @@ public class LibraryManagementTest {
 		boolean b=true;
 		while(b)
 		{
-			System.out.println("1.INSERT\n2.DISPLAY BASED DEPARTMENT\n3.DISPLAY BASED AUTHOR\n4.DISPLAY BASED EDITION\nChoose your option ");
+			System.out.println("1.INSERT\n2.DISPLAY BASED DEPARTMENT\n3.DISPLAY BASED AUTHOR ");
 			int choice=scan.nextInt();
 		try
 		{
@@ -36,24 +36,20 @@ public class LibraryManagementTest {
 		    	  System.out.println("Enter serial number");
 		    	  int SNo=scan.nextInt();
 		    	  System.out.println("Enter Book name");
-		    	  String book_names=scan.next();
-		    	  String book_name=book_names.toUpperCase();
+		    	  String book_name=scan.next();
 		    	  System.out.println("Enter Book number");
 		    	  int book_number=scan.nextInt();
 		    	  System.out.println("Enter Author name");
-		    	  String author_names=scan.next();
-		    	  String author_name=author_names.toUpperCase();
+		    	  String author_name=scan.next();
 		    	  System.out.println("Enter Department");
-		    	  String Department=scan.next();
-		    	  String department=Department.toUpperCase();
+		    	  String department=scan.next();
 		    	  System.out.println("Enter Book Price");
 		    	  int price=scan.nextInt();
 		    	  System.out.println("Enter Book edition");
 		    	  String edition=scan.next();
 		    	  System.out.println("Enter Book Publication");
-		    	  String Publication=scan.next();
-		    	  String publication=Publication.toUpperCase();
-		    	 status=db.insertData(sts,SNo,book_name,book_number,author_name,department,price,edition,publication);
+		    	  String publication=scan.next();
+		    	  status=db.insertData(sts,SNo,book_name,book_number,author_name,department,price,edition,publication);
 		    	 if(status!=-1)
 		          {
 		        	  System.out.println("Inserted successfully");
@@ -69,16 +65,20 @@ public class LibraryManagementTest {
 				 System.out.println("DISPLAY BASED ON DEPARTMENT");
 		    	  System.out.println("***************************");
 		    	  System.out.println("Enter Department name");
-		    	  String Dept=scan.next();
-		    	  String dept=Dept.toUpperCase();
+		    	  String dept=scan.next();
 			   rs=db.displayBasedDepartment(sts,dept);
-			   System.out.println(" Book Name\tBook Number\tAuthor Name\tPublication");
-			   System.out.println("*********\t***********\t***********\t***********");			   while(rs.next())
+			   while(rs.next())
 		    	  {
-		    		  System.out.print(rs.getString(1)+"\t\t");
-		    		  System.out.print(rs.getInt(2)+"\t\t");
-		    		  System.out.print(rs.getString(3)+"\t\t");
-		    		  System.out.println(rs.getString(4));
+		    		  System.out.print(rs.getInt(1)+" ");
+		    		  System.out.print(rs.getString(2)+" ");
+		    		  System.out.print(rs.getInt(3)+" ");
+		    		  System.out.print(rs.getString(4)+" ");
+		    		  System.out.print(rs.getString(5)+" ");
+		    		  System.out.print(rs.getInt(6)+" ");
+		    		  System.out.print(rs.getInt(7)+" ");
+		    		  System.out.println(rs.getString(8)+" ");
+
+
 		    	  }
 			   break;
 			}  
@@ -86,36 +86,21 @@ public class LibraryManagementTest {
 			{
 			System.out.println("DISPLAY BASED ON AUTHOR");
 		    System.out.println("***************************");
-			System.out.println("Enter Author name");
-		    String Author=scan.next();
-		    String author=Author.toUpperCase();
+			 System.out.println("Enter Author name");
+		     String author=scan.next();
 			rs=db.displayBasedAuthor(sts,author);
-			System.out.println  (" Book Name\tBook Number\tAuthor Name\tPublication");
-			   System.out.println("*********\t***********\t***********\t***********");
-			  while(rs.next())
-			  {
-	    		  System.out.print(rs.getString(1)+"\t\t");
-	    		  System.out.print(rs.getInt(2)+"\t\t");
-	    		  System.out.print(rs.getString(3)+"\t\t");
-	    		  System.out.println(rs.getString(4));
-	    	  }
-			break;
-			}
-			case 4:
-			{
-			System.out.println("DISPLAY BASED ON EDITION");
-		    System.out.println("***************************");
-			System.out.println("Enter Edition");
-		    int edition=scan.nextInt();
-			rs=db.displayBasedEdition(sts,edition);
-			  System.out.println(" Book Name\tBook Number\tAuthor Name\tPublication");
-			   System.out.println("*********\t***********\t***********\t***********");
 			  while(rs.next())
 	    	  {
-	    		  System.out.print(rs.getString(1)+"\t\t");
-	    		  System.out.print(rs.getInt(2)+"\t\t");
-	    		  System.out.print(rs.getString(3)+"\t\t");
-	    		  System.out.println(rs.getString(4));
+	    		  System.out.print(rs.getInt(1)+" ");
+	    		  System.out.print(rs.getString(2)+" ");
+	    		  System.out.print(rs.getInt(3)+" ");
+	    		  System.out.print(rs.getString(4)+" ");
+	    		  System.out.print(rs.getString(5)+" ");
+	    		  System.out.print(rs.getInt(6)+" ");
+	    		  System.out.print(rs.getInt(7)+" ");
+	    		  System.out.println(rs.getString(8)+" ");
+
+
 	    	  }
 			break;
 			}

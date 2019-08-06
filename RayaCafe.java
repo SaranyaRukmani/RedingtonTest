@@ -9,35 +9,45 @@ import java.util.Scanner;
 
 public class RayaCafe {
 	    Scanner scan=new Scanner(System.in);
-	    ResultSet rs;
-	    int status;
+	    /*ResultSet rs;
+	    int status;*/
         public int insertFoodDetails(Statement sts,int SNo,String FoodItem,int Price,int Offer,double offerPrice) throws ClassNotFoundException,SQLException
         {
-			    int status=sts.executeUpdate("INSERT INTO cafe_menu VALUES("+SNo+",'"+FoodItem+"',"+Price+","+Offer+","+offerPrice+")");
-			    return status;
+			   /* int status=sts.executeUpdate("INSERT INTO cafe_menu VALUES("+SNo+",'"+FoodItem+"',"+Price+","+Offer+","+offerPrice+")");
+			    return status;*/
+        	 return sts.executeUpdate("INSERT INTO cafe_menu VALUES("+SNo+",'"+FoodItem+"',"+Price+","+Offer+","+offerPrice+")");
+			   
         }
         
         public ResultSet displayMenu(Statement sts) throws ClassNotFoundException,SQLException
         {
-			    rs=sts.executeQuery("SELECT*FROM cafe_menu");
-				return rs;
+			    /*rs=sts.executeQuery("SELECT*FROM cafe_menu");
+				return rs;*/
+        	return sts.executeQuery("SELECT*FROM cafe_menu");
+			
 				
         }
         public int deleteFoodDetails(Statement sts,int n) throws ClassNotFoundException,SQLException
         {
-			    status=sts.executeUpdate("DELETE FROM cafe_menu WHERE SNo="+n);
-			    return status;			
+			    /*status=sts.executeUpdate("DELETE FROM cafe_menu WHERE SNo="+n);
+			    return status;		*/	
+        	 return sts.executeUpdate("DELETE FROM cafe_menu WHERE SNo="+n);
+		   
          }
         public int updateFoodDetails(Statement sts,int sno, int price, int offer, int offPrice) throws ClassNotFoundException,SQLException
         {
         	 
-			    status=sts.executeUpdate("UPDATE cafe_menu SET Price="+price+",Offer="+offer+",OfferPrice="+offPrice+" WHERE SNo="+sno);
-			    return status;
+			   /* status=sts.executeUpdate("UPDATE cafe_menu SET Price="+price+",Offer="+offer+",OfferPrice="+offPrice+" WHERE SNo="+sno);
+			    return status;*/
+        	 return sts.executeUpdate("UPDATE cafe_menu SET Price="+price+",Offer="+offer+",OfferPrice="+offPrice+" WHERE SNo="+sno);
+		   
          }
         public ResultSet offerItem(Statement sts) throws ClassNotFoundException,SQLException
         {
-			    rs=sts.executeQuery("SELECT SNo,FoodItem,Price FROM cafe_menu WHERE Offer>0");
-				return rs;
+			    /*rs=sts.executeQuery("SELECT SNo,FoodItem,Price FROM cafe_menu WHERE Offer>0");
+				return rs;*/
+        	return sts.executeQuery("SELECT SNo,FoodItem,Price FROM cafe_menu WHERE Offer>0");
+			
 			
         }
 
